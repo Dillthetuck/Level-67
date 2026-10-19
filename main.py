@@ -8,17 +8,19 @@ def main():
     guess_count = -1
 
     #intro function
+    print()
     print('Welcome to Mystery Wordle!')
     print('Guess the five-letter word.')
     print()
     print('G = correct letter and position\nY = correct letter, wrong position\n- = letter is not in the word\n')
 
     play_game = True
+    past_guesses = []
     #start game loop
     while play_game is True:
         #select word function
-        # secret_word = select_word()
-        secret_word = 'anuct'
+        secret_word = select_word()
+
         guess_count = 0
         #while the # of attempts less than 7
     
@@ -27,11 +29,12 @@ def main():
             if guess_count == -1:
                 break
 
-            print(f'try {guess_count + 1}')
+            print(f'Attempt {guess_count + 1} of 6')
 
             # get_guess()       : Gets and validates the player's guess.
             guess = get_guess()
-            
+            past_guesses.append(guess)
+
             # evaluate_guess()  : Compares the guess with the secret word and returns feedback.
             hint = evaluate_guess(guess, secret_word)
 
@@ -60,6 +63,7 @@ def main():
                         
 
             guess_count += 1
+        print(f'Sorry, you have used all your attempts. The secret word was: {secret_word.upper()}')
 
         
             
