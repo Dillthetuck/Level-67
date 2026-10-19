@@ -1,6 +1,6 @@
 from random import randint
 
-def select_word():
+def choose_word():
     word_bank = [
     "lemon", "kudos", "xylan", "cloud", "quota", "night", "agile", "shame", "drink", "ulcer",
     "spicy", "crane", "often", "olive", "sound", "lousy", "music", "yacht", "tiger", "juice",
@@ -17,7 +17,7 @@ def select_word():
 
 
 # get_guess()       : Gets and validates the player's guess.
-def get_guess():
+def get_guess(past_guesses):
     while True:
         guess = input('Enter a five-letter word: ').strip()
         
@@ -25,6 +25,8 @@ def get_guess():
             print("Invalid input: The word must be exactly 5 letters long.")
         elif not guess.isalpha():
             print("Invalid input: Please enter letters only")
+        elif guess in past_guesses:
+            print("Invalid input: You have already guessed that word.")
         else:
             return guess
 
@@ -33,6 +35,8 @@ def get_guess():
 # evaluate_guess()  : Compares the guess with the secret word and returns feedback.
 def evaluate_guess(guess, secret):
     hint = []
+    guess = guess.lower()
+    secret = secret.lower()
     for i in range(len(guess)):
         if guess[i] == secret[i]:
             hint.append('G')

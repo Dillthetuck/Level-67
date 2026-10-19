@@ -15,11 +15,12 @@ def main():
     print('G = correct letter and position\nY = correct letter, wrong position\n- = letter is not in the word\n')
 
     play_game = True
-    past_guesses = []
+
     #start game loop
     while play_game is True:
         #select word function
-        secret_word = select_word()
+        secret_word = choose_word()
+        past_guesses = []
 
         guess_count = 0
         #while the # of attempts less than 7
@@ -32,7 +33,7 @@ def main():
             print(f'Attempt {guess_count + 1} of 6')
 
             # get_guess()       : Gets and validates the player's guess.
-            guess = get_guess()
+            guess = get_guess(past_guesses)
             past_guesses.append(guess)
 
             # evaluate_guess()  : Compares the guess with the secret word and returns feedback.
@@ -63,21 +64,22 @@ def main():
                         
 
             guess_count += 1
-        print(f'Sorry, you have used all your attempts. The secret word was: {secret_word.upper()}')
-        again = input('Would you like to play again? (yes/no) ')
-        print()
-        
-        if again == 'no':
-            print('Thanks for playing!')
-            play_game = False
-            return
-        
-        elif again == 'yes':
-            play_game = True
-            guess_count = -2
+        if guess_count == 6:
+            print(f'Sorry, you have used all your attempts. The secret word was: {secret_word.upper()}')
+            again = input('Would you like to play again? (yes/no) ')
+            print()
             
-        else:
-            print('invalid response')
+            if again == 'no':
+                print('Thanks for playing!')
+                play_game = False
+                return
+        
+            elif again == 'yes':
+                play_game = True
+                guess_count = -2
+            
+            else:
+                print('invalid response')
         
             
         
