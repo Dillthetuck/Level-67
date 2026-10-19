@@ -64,7 +64,20 @@ def main():
 
             guess_count += 1
         print(f'Sorry, you have used all your attempts. The secret word was: {secret_word.upper()}')
-
+        again = input('Would you like to play again? (yes/no) ')
+        print()
+        
+        if again == 'no':
+            print('Thanks for playing!')
+            play_game = False
+            return
+        
+        elif again == 'yes':
+            play_game = True
+            guess_count = -2
+            
+        else:
+            print('invalid response')
         
             
         
