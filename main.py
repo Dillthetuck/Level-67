@@ -25,9 +25,13 @@ def main():
             
             # evaluate_guess()  : Compares the guess with the secret word and returns feedback.
             hint = evaluate_guess(guess, secret_word)
-            #display_guess()   : Displays the guess and its feedback.
 
-            #has_won()         : Determines whether the player has guessed the word.
+            #display_guess()   : Displays the guess and its feedback.
+            display_guess(guess, hint)
+
+            #has_won() : Determines whether the player has guessed the word.
+            
+
 
             guess_count += 1
 

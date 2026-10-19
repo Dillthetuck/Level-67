@@ -41,5 +41,9 @@ def evaluate_guess(guess, secret):
         else:
             hint.append('-')
     return hint
+
 #display_guess()   : Displays the guess and its feedback.
-    # print(f'Guess: {guess[0].upper()} {guess[1].upper()} {guess[2].upper()} {guess[3].upper()} {guess[4].upper()}')
+def display_guess(guess, hint):
+    print(f'Guess: {guess[0].upper()} {guess[1].upper()} {guess[2].upper()} {guess[3].upper()} {guess[4].upper()}')
+    print(f'Feedback: {hint[0]} {hint[1]} {hint[2]} {hint[3]} {hint[4]}')
+    
