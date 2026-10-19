@@ -34,7 +34,7 @@ def main():
 
             # get_guess()       : Gets and validates the player's guess.
             guess = get_guess(past_guesses)
-            past_guesses.append(guess)
+            past_guesses.append(guess.lower())
 
             # evaluate_guess()  : Compares the guess with the secret word and returns feedback.
             hint = evaluate_guess(guess, secret_word)
@@ -68,19 +68,22 @@ def main():
             print(f'Sorry, you have used all your attempts. The secret word was: {secret_word.upper()}')
             again = input('Would you like to play again? (yes/no) ')
             print()
-            
-            if again == 'no':
-                print('Thanks for playing!')
-                play_game = False
-                return
-        
-            elif again == 'yes':
-                play_game = True
-                guess_count = -2
-            
-            else:
-                print('invalid response')
-        
+            while True:
+                #ask user if they want to play again
+                again = input('Would you like to play again? (yes/no) ')
+                print()
+                
+                if again == 'no':
+                    print('Thanks for playing!')
+                    play_game = False
+                    return
+                
+                elif again == 'yes':
+                    play_game = True
+                    guess_count = -2
+                    break
+                else:
+                    print('invalid response')
             
         
 
