@@ -44,6 +44,17 @@ def evaluate_guess(guess, secret):
 
 #display_guess()   : Displays the guess and its feedback.
 def display_guess(guess, hint):
+    print()
     print(f'Guess: {guess[0].upper()} {guess[1].upper()} {guess[2].upper()} {guess[3].upper()} {guess[4].upper()}')
     print(f'Feedback: {hint[0]} {hint[1]} {hint[2]} {hint[3]} {hint[4]}')
-    
+    print()
+
+
+# has won() : checks if win condition is triggered
+def has_won(hint):
+    for i in hint:
+        if i == 'G':
+            continue
+        else:
+            return False
+    return True

@@ -30,12 +30,28 @@ def main():
             display_guess(guess, hint)
 
             #has_won() : Determines whether the player has guessed the word.
-            
+            if has_won(hint):
+                print('Congratulations! You solved the puzzle.')
+                while True:
+                    again = input('Would you like to play again? (yes/no) ')
+                    if again == 'no':
+                        print('Thanks for playing!')
+                        play_game = False
+                        return
+                    elif again == 'yes':
+                        play_game = True
+                        guess_count = 0
+                        return
+                    else:
+                        print('invlaid response')
+                        
 
+
+# 
 
             guess_count += 1
 
-        play_game = False
+        
             
         
 
