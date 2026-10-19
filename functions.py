@@ -32,6 +32,14 @@ def get_guess():
 
 # evaluate_guess()  : Compares the guess with the secret word and returns feedback.
 def evaluate_guess(guess, secret):
-    print(f'Guess: {guess[0].upper()} {guess[1].upper()} {guess[2].upper()} {guess[3].upper()} {guess[4].upper()}')
-
+    hint = []
+    for i in range(len(guess)):
+        if guess[i] == secret[i]:
+            hint.append('G')
+        elif guess[i] == secret[0] or guess[i] == secret[1] or guess[i] == secret[2] or guess[i] == secret[3] or guess[i] == secret[4]:
+            hint.append('Y')
+        else:
+            hint.append('-')
+    return hint
 #display_guess()   : Displays the guess and its feedback.
+    # print(f'Guess: {guess[0].upper()} {guess[1].upper()} {guess[2].upper()} {guess[3].upper()} {guess[4].upper()}')

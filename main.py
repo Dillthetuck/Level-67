@@ -13,8 +13,8 @@ def main():
     #start game loop
     while play_game is True:
         #select word function
-        secret_word = select_word()
-        print(secret_word)
+        # secret_word = select_word()
+        secret_word = 'anuct'
         guess_count = 0
         #while the # of attempts less than 7
         while guess_count < 6:
@@ -24,7 +24,7 @@ def main():
             guess = get_guess()
             
             # evaluate_guess()  : Compares the guess with the secret word and returns feedback.
-            evaluate_guess(guess, secret_word)
+            hint = evaluate_guess(guess, secret_word)
             #display_guess()   : Displays the guess and its feedback.
 
             #has_won()         : Determines whether the player has guessed the word.
