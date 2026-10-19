@@ -1,4 +1,4 @@
-from functions import *
+from wordle_functions import *
 
 
 
